@@ -10,7 +10,6 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Post;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller("/onlinegame")
 public class REST {
@@ -23,7 +22,7 @@ public class REST {
         return HttpResponse.ok(
                 matchmaking
                         .assignGroups(request.getGroupCount(), request.getClans())
-                        .stream().map(Group::getClans).collect(Collectors.toList())
+                        .stream().map(Group::getClans).toList()
         );
     }
 }

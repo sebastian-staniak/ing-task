@@ -1,5 +1,7 @@
 package com.sebastianstaniak.domain;
 
+import java.util.Objects;
+
 public class Clan implements Comparable<Clan> {
     private int numberOfPlayers;
     private int points;
@@ -27,5 +29,18 @@ public class Clan implements Comparable<Clan> {
         } else {
             return Integer.compare(this.numberOfPlayers, other.numberOfPlayers);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Clan clan = (Clan) o;
+        return numberOfPlayers == clan.numberOfPlayers && points == clan.points;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numberOfPlayers, points);
     }
 }
