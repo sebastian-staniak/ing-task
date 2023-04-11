@@ -1,14 +1,4 @@
-## Micronaut 3.8.8 Documentation
-
-- [User Guide](https://docs.micronaut.io/3.8.8/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.8.8/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.8.8/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
-
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
-
+## Static analysis
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=transactionss&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=transactionss)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=transactionss&metric=bugs)](https://sonarcloud.io/summary/new_code?id=transactionss)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=transactionss&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=transactionss)
