@@ -10,15 +10,13 @@ public class Bank {
 
     public void makeTransfers(List<Transaction> transactions) {
         openAccounts(transactions);
+
         transactions
                 .parallelStream()
                 .forEach(transaction ->
                 {
-                    Account to = this.accounts.get(transaction.creditAccount);
-                    Account from = this.accounts.get(transaction.debitAccount);
-
-                    from.debit(transaction.amount);
-                    to.credit(transaction.amount);
+                    this.accounts.get(transaction.debitAccount).debit(transaction.amount);
+                    this.accounts.get(transaction.creditAccount).credit(transaction.amount);
                 });
     }
 

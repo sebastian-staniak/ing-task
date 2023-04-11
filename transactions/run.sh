@@ -1,1 +1,1 @@
-java -jar build/libs/demo-0.1-all.jar
+java -jar build/libs/transactions-0.1-all.jar

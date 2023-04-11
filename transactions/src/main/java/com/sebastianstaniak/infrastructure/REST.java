@@ -14,12 +14,12 @@ import java.util.List;
 
 @Controller("/transactions")
 public class REST {
-    private final Bank bank = new Bank();
 
     @Post(uri = "/report", produces = MediaType.APPLICATION_JSON)
     public HttpResponse<Collection<Account>> generateReport(
             @Body List<Transaction> transactions
     ) {
+        Bank bank = new Bank();
         bank.makeTransfers(transactions);
 
         return HttpResponse.ok(bank.getSortedAccounts().values());

@@ -1,0 +1,1 @@
+java -jar build/libs/onlinegame-0.1-all.jar

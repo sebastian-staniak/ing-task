@@ -1,0 +1,10 @@
+micronaut:
+  server:
+    max-request-size: 1768743800
+  application:
+    name: demo
+netty:
+  default:
+    allocator:
+      max-order: 3
+
