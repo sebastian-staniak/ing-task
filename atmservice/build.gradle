@@ -2,6 +2,7 @@ plugins {
     id("groovy") 
     id("com.github.johnrengelman.shadow") version "7.1.2"
     id("io.micronaut.application") version "3.7.7"
+    id "org.sonarqube" version "4.0.0.2929"
 }
 
 version = "0.1"
@@ -28,6 +29,14 @@ application {
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
     targetCompatibility = JavaVersion.toVersion("17")
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "atmservice"
+        property "sonar.organization", "sebastian-staniak"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
 
 graalvmNative.toolchainDetection = false
