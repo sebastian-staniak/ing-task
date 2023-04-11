@@ -1,0 +1,1 @@
+java -jar build/libs/atmservice-0.1-all.jar
