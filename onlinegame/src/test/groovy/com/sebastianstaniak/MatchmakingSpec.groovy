@@ -197,4 +197,28 @@ class MatchmakingSpec extends Specification {
             groups[4].clans[0].points == 40
 
     }
+
+    void 'it keeps group order'() {
+        given:
+            def matchmaking = new Matchmaking()
+        and:
+            def clans = [
+                    new Clan(4, 9),
+                    new Clan(3, 8),
+                    new Clan(4, 7),
+                    new Clan(1, 2),
+
+            ]
+
+        when:
+            def groups = matchmaking.assignGroups(4, clans)
+
+      then:
+        groups[0].clans[0].points == 9
+
+        groups[1].clans[0].points == 8
+        groups[1].clans[1].points == 2
+
+        groups[2].clans[0].points == 7
+    }
 }
