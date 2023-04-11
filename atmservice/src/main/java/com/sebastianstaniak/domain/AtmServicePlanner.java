@@ -14,6 +14,6 @@ public class AtmServicePlanner {
                 .parallelStream()
                 .map(list -> list.stream().distinct().sorted())
                 .flatMap(item -> item.map(task -> new ATM(task.getRegion(), task.getAtmId())))
-                .collect(Collectors.toList());
+                .toList();
     }
 }
