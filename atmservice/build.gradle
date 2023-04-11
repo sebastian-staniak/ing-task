@@ -3,6 +3,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
     id("io.micronaut.application") version "3.7.7"
     id "org.sonarqube" version "4.0.0.2929"
+    id "jacoco"
 }
 
 version = "0.1"
@@ -36,6 +37,7 @@ sonarqube {
         property "sonar.projectKey", "atmservice"
         property "sonar.organization", "sebastian-staniak"
         property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/jacocoReports/test/jacocoTestReport.xml"
     }
 }
 
@@ -49,5 +51,15 @@ micronaut {
     }
 }
 
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = layout.buildDirectory.dir('jacocoReports')
+}
 
-
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoReports')
+    }
+}
