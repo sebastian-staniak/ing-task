@@ -54,11 +54,11 @@ class BankSpec extends Specification {
 
         then:
             def list = bank.getSortedAccounts().values()
-            list[0].getIBAN() == "1"
-            list[1].getIBAN() == "2"
-            list[2].getIBAN() == "3"
-            list[3].getIBAN() == "4"
-            list[4].getIBAN() == "5"
+            list[0].getIban() == "1"
+            list[1].getIban() == "2"
+            list[2].getIban() == "3"
+            list[3].getIban() == "4"
+            list[4].getIban() == "5"
     }
 
     void 'test it can calculate big numbers'() {

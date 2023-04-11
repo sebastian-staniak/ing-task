@@ -3,9 +3,9 @@ package com.sebastianstaniak.domain;
 import java.math.BigDecimal;
 
 public class Transaction {
-        public String debitAccount;
-        public String creditAccount;
-        public BigDecimal amount;
+        private String debitAccount;
+        private String creditAccount;
+        private BigDecimal amount;
 
         public Transaction() {
         }
@@ -14,5 +14,17 @@ public class Transaction {
                 this.debitAccount = debitAccount;
                 this.creditAccount = creditAccount;
                 this.amount = amount;
+        }
+
+        public String getDebitAccount() {
+                return debitAccount;
+        }
+
+        public String getCreditAccount() {
+                return creditAccount;
+        }
+
+        public BigDecimal getAmount() {
+                return amount;
         }
 }

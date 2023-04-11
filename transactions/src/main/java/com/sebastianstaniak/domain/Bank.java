@@ -1,6 +1,7 @@
 package com.sebastianstaniak.domain;
 
 import java.util.List;
+import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -15,8 +16,8 @@ public class Bank {
                 .parallelStream()
                 .forEach(transaction ->
                 {
-                    this.accounts.get(transaction.debitAccount).debit(transaction.amount);
-                    this.accounts.get(transaction.creditAccount).credit(transaction.amount);
+                    this.accounts.get(transaction.getDebitAccount()).debit(transaction.getAmount());
+                    this.accounts.get(transaction.getCreditAccount()).credit(transaction.getAmount());
                 });
     }
 
@@ -24,13 +25,13 @@ public class Bank {
         transactions
                 .parallelStream()
                 .flatMap(transaction ->
-                        Stream.of(transaction.creditAccount, transaction.debitAccount)
+                        Stream.of(transaction.getCreditAccount(), transaction.getDebitAccount())
                 )
                 .collect(Collectors.toSet())
                 .forEach(id -> this.accounts.put(id, new Account(id)));
     }
 
-    public TreeMap<String, Account> getSortedAccounts() {
+    public SortedMap<String, Account> getSortedAccounts() {
         return this.accounts;
     }
 }
