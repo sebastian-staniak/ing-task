@@ -156,7 +156,7 @@ class MatchmakingSpec extends Specification {
             groups[1].clans[0].numberOfPlayers == 5
     }
 
-    void 'it will cover provided use cae'() {
+    void 'it will cover provided use case'() {
         given:
             def matchmaking = new Matchmaking()
         and:

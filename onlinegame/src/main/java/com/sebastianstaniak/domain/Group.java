@@ -29,4 +29,8 @@ public class Group {
     public int size() {
         return this.currentSize.get();
     }
+
+    public boolean isFull() {
+        return this.size() == this.maxSize;
+    }
 }

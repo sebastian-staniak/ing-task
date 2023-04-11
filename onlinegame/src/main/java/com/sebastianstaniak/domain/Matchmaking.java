@@ -9,16 +9,21 @@ public class Matchmaking {
 
     public List<Group> assignGroups(int maxGroupCount, List<Clan> clans) {
         List<Group> groups = new ArrayList<Group>();
+        List<Group> fullGroups = new ArrayList<Group>();
 
         clans.parallelStream()
                 .sorted()
-                .collect(Collectors.toCollection(LinkedList::new))
+                .collect(Collectors.toCollection(LinkedList::new)) // TODO make it parallelStream
                 .forEach(clan -> {
                     boolean assigned = false;
                     for (Group group : groups) {
                         if (group.canFit(clan)) {
                             group.add(clan);
                             assigned = true;
+                            if (group.isFull()) {
+                                groups.remove(group);
+                                fullGroups.add(group);
+                            }
                             break;
                         }
                     }
@@ -28,7 +33,7 @@ public class Matchmaking {
                         newGroup.add(clan);
                     }
                 });
-
-        return groups;
+        fullGroups.addAll(groups); // TODO make sure order of this merge is same as without full group optimization
+        return fullGroups;
     }
 }
