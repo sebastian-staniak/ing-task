@@ -1,1 +1,0 @@
-java -jar build/libs/transactions-0.1-all.jar
